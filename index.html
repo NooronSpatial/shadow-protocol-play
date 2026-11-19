@@ -121,18 +121,27 @@
     };
 
     const canvas = document.getElementById("unity-canvas");
-    // Modern Chrome/Safari return a Promise from requestPointerLock(); swallow benign rejections
-    // (e.g. Esc spam, embedded views, or rapid focus changes) so Unity never triggers a scary error alert!
-    if (canvas && typeof canvas.requestPointerLock === "function") {
-      const origRequestPL = canvas.requestPointerLock.bind(canvas);
-      canvas.requestPointerLock = function (...args) {
+    // Patch Element.prototype.requestPointerLock AND capture benign pointer-lock promise rejections
+    // before Unity's loader attaches its alert handler (fixes Chrome/Safari/embedded webview WrongDocumentError/SecurityError popups).
+    if (typeof Element !== "undefined" && typeof Element.prototype.requestPointerLock === "function") {
+      const protoPL = Element.prototype.requestPointerLock;
+      Element.prototype.requestPointerLock = function (...args) {
         try {
-          const res = origRequestPL(...args);
-          if (res && typeof res.catch === "function") res.catch(() => {});
+          const res = protoPL.apply(this, args);
+          if (res && typeof res.catch === "function") return res.catch(() => undefined);
           return res;
-        } catch (_) {}
+        } catch (_) {
+          return undefined;
+        }
       };
     }
+    window.addEventListener("unhandledrejection", (e) => {
+      const msg = String((e && e.reason && (e.reason.message || e.reason)) || "").toLowerCase();
+      if (msg.includes("pointer lock") || msg.includes("wrongdocumenterror")) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+    }, true);
     const overlay = document.getElementById("loading-overlay");
     const fill = document.getElementById("progress-fill");
     const statusEl = document.getElementById("loading-status");
