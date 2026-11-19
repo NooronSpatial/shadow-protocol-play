@@ -121,6 +121,18 @@
     };
 
     const canvas = document.getElementById("unity-canvas");
+    // Modern Chrome/Safari return a Promise from requestPointerLock(); swallow benign rejections
+    // (e.g. Esc spam, embedded views, or rapid focus changes) so Unity never triggers a scary error alert!
+    if (canvas && typeof canvas.requestPointerLock === "function") {
+      const origRequestPL = canvas.requestPointerLock.bind(canvas);
+      canvas.requestPointerLock = function (...args) {
+        try {
+          const res = origRequestPL(...args);
+          if (res && typeof res.catch === "function") res.catch(() => {});
+          return res;
+        } catch (_) {}
+      };
+    }
     const overlay = document.getElementById("loading-overlay");
     const fill = document.getElementById("progress-fill");
     const statusEl = document.getElementById("loading-status");
