@@ -108,11 +108,12 @@
 
   <script>
     const buildUrl = "Build";
-    const loaderUrl = buildUrl + "/WebGL.loader.js";
+    const cacheTag = "?v=73c59c6923";
+    const loaderUrl = buildUrl + "/WebGL.loader.js" + cacheTag;
     const config = {
-      dataUrl: buildUrl + "/WebGL.data.unityweb",
-      frameworkUrl: buildUrl + "/WebGL.framework.js.unityweb",
-      codeUrl: buildUrl + "/WebGL.wasm.unityweb",
+      dataUrl: buildUrl + "/WebGL.data.unityweb" + cacheTag,
+      frameworkUrl: buildUrl + "/WebGL.framework.js.unityweb" + cacheTag,
+      codeUrl: buildUrl + "/WebGL.wasm.unityweb" + cacheTag,
       streamingAssetsUrl: "StreamingAssets",
       companyName: "NooronSpatial",
       productName: "Shadow Protocol",
