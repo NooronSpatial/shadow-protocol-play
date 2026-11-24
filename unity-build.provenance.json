@@ -6,8 +6,8 @@
   },
   "outcome": "success",
   "exitCode": 0,
-  "startedAt": "2026-11-24T00:53:38.002Z",
-  "endedAt": "2026-11-24T00:56:10.284Z",
+  "startedAt": "2026-11-24T13:58:14.968Z",
+  "endedAt": "2026-11-24T14:00:10.157Z",
   "editor": {
     "version": "6000.6.9f1",
     "changeset": "8c45277fb9c5",
@@ -17,11 +17,11 @@
     "target": "WebGL",
     "executeMethod": "WebOptimizer.BuildWebGLHeadless",
     "outputPath": "Builds/WebGL",
-    "logFile": "Logs/webgl-build-6b319f8.log"
+    "logFile": "Logs/webgl-build-06ee9c1.log"
   },
   "source": {
     "vcs": "git",
-    "revision": "6b319f82a708b9466865cd6b72469a06d659fef1",
+    "revision": "06ee9c121ce6dd23a1dd1b5ac19466e010a22b31",
     "dirty": false
   },
   "packages": {
