@@ -2,12 +2,12 @@
   "schemaVersion": 1,
   "generator": {
     "name": "unity-cli",
-    "version": "1.0.0-beta.13"
+    "version": "1.0.1"
   },
   "outcome": "success",
   "exitCode": 0,
-  "startedAt": "2026-11-24T18:41:36.278Z",
-  "endedAt": "2026-11-24T18:43:29.116Z",
+  "startedAt": "2026-11-25T16:58:30.013Z",
+  "endedAt": "2026-11-25T17:00:18.593Z",
   "editor": {
     "version": "6000.6.9f1",
     "changeset": "8c45277fb9c5",
@@ -17,11 +17,11 @@
     "target": "WebGL",
     "executeMethod": "WebOptimizer.BuildWebGLHeadless",
     "outputPath": "Builds/WebGL",
-    "logFile": "Logs/webgl-build-e5d9067.log"
+    "logFile": "Logs/webgl-build-573c147.log"
   },
   "source": {
     "vcs": "git",
-    "revision": "e5d9067dd9d9ee63d4d949ad4b464fd5f55f7d2a",
+    "revision": "573c1470d2cf8dbd6706717b2540056e537339c7",
     "dirty": false
   },
   "packages": {
