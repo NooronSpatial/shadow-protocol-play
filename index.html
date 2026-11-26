@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>Hayy al-Fanous — a Shadow Protocol slice</title>
+  <title>Hayy al-Fanous</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
@@ -94,13 +94,13 @@
 
   <div id="loading-overlay">
     <div class="card">
-      <div class="kicker">MARSA NOUR // HAYY AL-FANOUS</div>
-      <h1>SHADOW PROTOCOL</h1>
+      <div class="kicker">MARSA NOUR</div>
+      <h1>Hayy al-Fanous</h1>
       <div class="quote">"A city by the sea, under siege. Keep people alive."</div>
       <div class="bar-track"><div class="bar-fill" id="progress-fill"></div></div>
       <div id="loading-status">INITIALIZING WEBGL RUNTIME... 0%</div>
       <div class="controls-hint">
-        WASD MOVE &middot; C CROUCH &middot; 1 JAMMER &middot; 2 NET &middot; 3 SPOOFER &middot; LMB USE TOOL &middot; E DIG / RESCUE &middot; T THERMAL &middot; SPACE CONTINUE
+        WASD MOVE &middot; SHIFT RUN &middot; C / CTRL CROUCH &middot; 1 JAMMER &middot; 2 NET &middot; 3 SPOOFER &middot; LMB USE TOOL &middot; HOLD E DIG &middot; T THERMAL &middot; M MAP &middot; P / ESC PAUSE &middot; SPACE CONTINUE
       </div>
       <div id="error-box"></div>
     </div>
@@ -108,7 +108,7 @@
 
   <script>
     const buildUrl = "Build";
-    const cacheTag = "?v=903980e044";
+    const cacheTag = "?v=1ee1a78a26";
     const loaderUrl = buildUrl + "/WebGL.loader.js" + cacheTag;
     const config = {
       dataUrl: buildUrl + "/WebGL.data.unityweb" + cacheTag,
@@ -165,7 +165,7 @@
         fsBtn.onclick = () => unityInstance.SetFullscreen(1);
       }).catch((message) => {
         errorBox.style.display = "block";
-        errorBox.textContent = "Failed to launch Shadow Protocol WebGL: " + message;
+        errorBox.textContent = "Failed to launch Hayy al-Fanous WebGL: " + message;
         statusEl.textContent = "SIGNAL LOST";
       });
     };
